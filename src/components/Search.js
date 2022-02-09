@@ -1,9 +1,16 @@
-import React from "react";
+import React, {useState} from "react";
 
-function Search() {
+function Search({onSubmitSearch, onSortClick, isSorted}) {
+  const [inputValue, setInputValue] = useState('')
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("submitted");
+    onSubmitSearch(inputValue.toLowerCase())
+    e.target.reset()
+  }
+
+  function handleSortClick() {
+    onSortClick()
   }
 
   return (
@@ -12,10 +19,11 @@ function Search() {
         type="text"
         id="search"
         placeholder="search free stuff"
-        value={""}
-        onChange={(e) => console.log(e.target.value)}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <button type="submit">🔍</button>
+      <button onClick={handleSortClick}>{isSorted ? "Unsort" : "Sort"}</button>
     </form>
   );
 }

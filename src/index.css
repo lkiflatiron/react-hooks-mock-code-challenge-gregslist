@@ -82,6 +82,15 @@ main {
   cursor: pointer;
 }
 
+.emoji-button.sort {
+  border: 1px solid firebrick;
+}
+
+.emoji-button.sort:hover {
+  text-shadow: 0 0 0 firebrick;
+  cursor: pointer;
+}
+
 .cards {
   list-style: none;
   display: flex;
